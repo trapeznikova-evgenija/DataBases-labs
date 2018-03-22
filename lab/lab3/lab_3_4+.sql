@@ -10,7 +10,7 @@ ORDER BY adress DESC;
 
 SELECT *
 FROM child
-ORDER BY name, date_of_birth ASC;
+ORDER BY name DESC, date_of_birth ASC;
 
 SELECT
   name,
@@ -35,13 +35,19 @@ FROM innoculation;
 /* 3 */
 
 /* количество прививок по каждому типу вакцинации */
-SELECT COUNT(id), id_type
+SELECT
+  COUNT(id),
+  id_type
 FROM innoculation
 GROUP BY id_type;
 
 /* выбирает прививки, которые ставятся одним типом вакцинации больше одного раза */
-SELECT COUNT(id), id_type
+SELECT
+  COUNT(id),
+  id_type
 FROM innoculation
 GROUP BY id_type
 HAVING COUNT(id) > 1;
+
+
 
