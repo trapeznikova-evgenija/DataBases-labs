@@ -25,6 +25,7 @@ FROM child
     ON vaccinated.id_child = child.id
 WHERE name = 'Звездочкина Марина Ивановна';
 
+
 /* 3 */
 /*таблица первого мальчика, которому сделали прививку*/
 SELECT *
