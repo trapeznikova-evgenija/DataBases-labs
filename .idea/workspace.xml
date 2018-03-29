@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dce032c-ed50-44dd-965d-72668ab29d25" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab3/lab3_3_new.sql" afterPath="$PROJECT_DIR$/lab3/lab3_3_new.sql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lab/lab5/lab5.sql" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +28,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="lab5.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="830">
+              <caret line="190" column="20" lean-forward="true" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lab3_3_new.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_3_new.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-918">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1521719075981" expanded="true" signature="119:354" ph="CREATE TABLE... IF" />
+                <marker date="1521719075981" expanded="true" signature="357:519" ph="CREATE TABLE... IF" />
+                <marker date="1521719075981" expanded="true" signature="522:633" ph="INSERT INTO type... " />
+                <marker date="1521719075981" expanded="true" signature="636:654" ph="SELECT * FRO... type" />
+                <marker date="1521719075981" expanded="true" signature="657:827" ph="CREATE TABLE... IF" />
+                <marker date="1521719075981" expanded="true" signature="830:925" ph="INSERT INTO method... " />
+                <marker date="1521719075981" expanded="true" signature="928:948" ph="SELECT * FRO... method" />
+                <marker date="1521719075981" expanded="true" signature="951:1119" ph="INSERT INTO innoculation... " />
+                <marker date="1521719075981" expanded="true" signature="1122:1148" ph="SELECT * FRO... innoculation" />
+                <marker date="1521719075981" expanded="true" signature="1151:1380" ph="CREATE TABLE... IF" />
+                <marker date="1521719075981" expanded="true" signature="1383:1618" ph="INSERT INTO vaccinated... " />
+                <marker date="1521719075981" expanded="true" signature="1621:1679" ph="ALTER TABLE vaccinated... " />
+                <marker date="1521719075981" expanded="true" signature="1682:1706" ph="SELECT * FRO... vaccinated" />
+                <marker date="1521719075981" expanded="true" signature="1709:1941" ph="CREATE TABLE... IF" />
+                <marker date="1521719075981" expanded="true" signature="1944:2429" ph="INSERT INTO child... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lab3_4.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_4.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-462">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1519901186444" expanded="true" signature="0:14" ph="/* 1.INSERT " />
+                <marker date="1519901186444" expanded="true" signature="16:93" ph="INSERT INTO book... " />
+                <marker date="1519901186444" expanded="true" signature="96:190" ph="INSERT INTO book... " />
+                <marker date="1519901186444" expanded="true" signature="193:270" ph="INSERT INTO shop... " />
+                <marker date="1519901186444" expanded="true" signature="226:270" ph="SELECT (name... publishing_house" />
+                <marker date="1519901186444" expanded="true" signature="273:287" ph="/* 2.DELETE " />
+                <marker date="1519901186444" expanded="true" signature="289:317" ph="DELETE FROM publishing_house... " />
+                <marker date="1519901186444" expanded="true" signature="320:362" ph="DELETE FROM book... " />
+                <marker date="1519901186444" expanded="true" signature="381:395" ph="/* 3.UPDATE " />
+                <marker date="1519901186444" expanded="true" signature="397:431" ph="UPDATE shop... " />
+                <marker date="1519901186444" expanded="true" signature="434:478" ph="UPDATE shop... " />
+                <marker date="1519901186444" expanded="true" signature="481:545" ph="UPDATE shop... " />
+                <marker date="1519901186444" expanded="true" signature="548:562" ph="/* 4.SELECT " />
+                <marker date="1519901186444" expanded="true" signature="564:594" ph="SELECT addre... shop" />
+                <marker date="1519901186444" expanded="true" signature="597:615" ph="SELECT * FRO... book" />
+                <marker date="1519901186444" expanded="true" signature="618:662" ph="SELECT * FRO... book" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lab_3_4+.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab/lab3/lab_3_4+.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+              <folding>
+                <marker date="1521717632025" expanded="true" signature="9:46" ph="SELECT * FRO... child" />
+                <marker date="1521717632025" expanded="true" signature="49:89" ph="SELECT * FRO... child" />
+                <marker date="1521717632025" expanded="true" signature="92:149" ph="SELECT * FRO... child" />
+                <marker date="1521717632025" expanded="true" signature="152:211" ph="SELECT name,... child" />
+                <marker date="1521717632025" expanded="true" signature="223:266" ph="SELECT MIN(i... vaccinated" />
+                <marker date="1521717632025" expanded="true" signature="269:313" ph="SELECT MAX(d... vaccinated" />
+                <marker date="1521717632025" expanded="true" signature="316:345" ph="SELECT AVG(i... type" />
+                <marker date="1521717632025" expanded="true" signature="348:385" ph="SELECT SUM(i... innoculation" />
+                <marker date="1521717632025" expanded="true" signature="397:449" ph="/* количеств... " />
+                <marker date="1521717632025" expanded="true" signature="450:514" ph="SELECT COUNT... innoculation" />
+                <marker date="1521717632025" expanded="true" signature="517:600" ph="/* выбирает " />
+                <marker date="1521717632025" expanded="true" signature="601:686" ph="SELECT COUNT... innoculation" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="lab3_3.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql">
+        <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_3.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
               <folding>
                 <marker date="1519320031693" expanded="true" signature="108:291" ph="CREATE TABLE... IF" />
                 <marker date="1519320031693" expanded="true" signature="294:324" ph="SELECT * FRO... publishing_house" />
@@ -48,26 +137,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lab3_4.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lab3_3_new.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -77,6 +146,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/lab3/lab3_3_new.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30839acd-f6d5-4938-8fd8-c928c1309b16/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/01b5fc05-2de4-4517-a8f4-fa4ab997448a/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/27c919d1-2f15-4f74-8789-ed16815e162e/console.sql" />
+        <option value="$PROJECT_DIR$/lab/lab5/lab5.sql" />
       </list>
     </option>
   </component>
@@ -118,7 +191,19 @@
             <path>
               <item name="DataBases-labs" type="b2602c69:ProjectViewProjectNode" />
               <item name="DataBases-labs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DataBases-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataBases-labs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lab3" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="DataBases-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataBases-labs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab5" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -133,6 +218,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../literarySpace" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="GenericSQL" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -162,21 +249,24 @@
       <workItem from="1521127068620" duration="1507000" />
       <workItem from="1521352659093" duration="4071000" />
       <workItem from="1521406576585" duration="144000" />
+      <workItem from="1522313940294" duration="4534000" />
+      <workItem from="1522333336860" duration="6689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5722000" />
+    <option name="totallyTimeSpent" value="16945000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="318" y="-4" width="1602" height="912" extended-state="6" />
+    <frame x="0" y="-4" width="1600" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32858992" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="6.25E-4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -187,7 +277,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957393" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -204,109 +293,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql">
+    <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_3_new.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1519320031693" expanded="true" signature="108:291" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="294:324" ph="SELECT * FRO... publishing_house" />
-            <marker date="1519320031693" expanded="true" signature="327:539" ph="INSERT INTO publishing_house... " />
-            <marker date="1519320031693" expanded="true" signature="542:755" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="758:785" ph="SELECT * FRO... book_delivery" />
-            <marker date="1519320031693" expanded="true" signature="788:922" ph="INSERT INTO book_delivery... " />
-            <marker date="1519320031693" expanded="true" signature="925:1096" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1099:1117" ph="SELECT * FRO... shop" />
-            <marker date="1519320031693" expanded="true" signature="1120:1307" ph="INSERT INTO shop... " />
-            <marker date="1519320031693" expanded="true" signature="1310:1516" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1519:1537" ph="SELECT * FRO... book" />
-            <marker date="1519320031693" expanded="true" signature="1540:1822" ph="INSERT INTO book... " />
+            <marker date="1521719075981" expanded="true" signature="119:354" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="357:519" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="522:633" ph="INSERT INTO type... " />
+            <marker date="1521719075981" expanded="true" signature="636:654" ph="SELECT * FRO... type" />
+            <marker date="1521719075981" expanded="true" signature="657:827" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="830:925" ph="INSERT INTO method... " />
+            <marker date="1521719075981" expanded="true" signature="928:948" ph="SELECT * FRO... method" />
+            <marker date="1521719075981" expanded="true" signature="951:1119" ph="INSERT INTO innoculation... " />
+            <marker date="1521719075981" expanded="true" signature="1122:1148" ph="SELECT * FRO... innoculation" />
+            <marker date="1521719075981" expanded="true" signature="1151:1380" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="1383:1618" ph="INSERT INTO vaccinated... " />
+            <marker date="1521719075981" expanded="true" signature="1621:1679" ph="ALTER TABLE vaccinated... " />
+            <marker date="1521719075981" expanded="true" signature="1682:1706" ph="SELECT * FRO... vaccinated" />
+            <marker date="1521719075981" expanded="true" signature="1709:1941" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="1944:2429" ph="INSERT INTO child... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1519320031693" expanded="true" signature="108:291" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="294:324" ph="SELECT * FRO... publishing_house" />
-            <marker date="1519320031693" expanded="true" signature="327:539" ph="INSERT INTO publishing_house... " />
-            <marker date="1519320031693" expanded="true" signature="542:755" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="758:785" ph="SELECT * FRO... book_delivery" />
-            <marker date="1519320031693" expanded="true" signature="788:922" ph="INSERT INTO book_delivery... " />
-            <marker date="1519320031693" expanded="true" signature="925:1096" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1099:1117" ph="SELECT * FRO... shop" />
-            <marker date="1519320031693" expanded="true" signature="1120:1307" ph="INSERT INTO shop... " />
-            <marker date="1519320031693" expanded="true" signature="1310:1516" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1519:1537" ph="SELECT * FRO... book" />
-            <marker date="1519320031693" expanded="true" signature="1540:1822" ph="INSERT INTO book... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1519320031693" expanded="true" signature="108:291" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="294:324" ph="SELECT * FRO... publishing_house" />
-            <marker date="1519320031693" expanded="true" signature="327:539" ph="INSERT INTO publishing_house... " />
-            <marker date="1519320031693" expanded="true" signature="542:755" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="758:785" ph="SELECT * FRO... book_delivery" />
-            <marker date="1519320031693" expanded="true" signature="788:922" ph="INSERT INTO book_delivery... " />
-            <marker date="1519320031693" expanded="true" signature="925:1096" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1099:1117" ph="SELECT * FRO... shop" />
-            <marker date="1519320031693" expanded="true" signature="1120:1307" ph="INSERT INTO shop... " />
-            <marker date="1519320031693" expanded="true" signature="1310:1516" ph="CREATE TABLE... IF" />
-            <marker date="1519320031693" expanded="true" signature="1519:1537" ph="SELECT * FRO... book" />
-            <marker date="1519320031693" expanded="true" signature="1540:1822" ph="INSERT INTO book... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_4.sql" />
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3.sql" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/de270e12-7d0e-4c84-82fa-6405688f96a2/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -321,10 +347,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql">
+    <entry file="file://$PROJECT_DIR$/lab3/lab3_3_new.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/30839acd-f6d5-4938-8fd8-c928c1309b16/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab4/lab4_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/01b5fc05-2de4-4517-a8f4-fa4ab997448a/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/27c919d1-2f15-4f74-8789-ed16815e162e/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="8" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_4.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-462">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1519901186444" expanded="true" signature="0:14" ph="/* 1.INSERT " />
+            <marker date="1519901186444" expanded="true" signature="16:93" ph="INSERT INTO book... " />
+            <marker date="1519901186444" expanded="true" signature="96:190" ph="INSERT INTO book... " />
+            <marker date="1519901186444" expanded="true" signature="193:270" ph="INSERT INTO shop... " />
+            <marker date="1519901186444" expanded="true" signature="226:270" ph="SELECT (name... publishing_house" />
+            <marker date="1519901186444" expanded="true" signature="273:287" ph="/* 2.DELETE " />
+            <marker date="1519901186444" expanded="true" signature="289:317" ph="DELETE FROM publishing_house... " />
+            <marker date="1519901186444" expanded="true" signature="320:362" ph="DELETE FROM book... " />
+            <marker date="1519901186444" expanded="true" signature="381:395" ph="/* 3.UPDATE " />
+            <marker date="1519901186444" expanded="true" signature="397:431" ph="UPDATE shop... " />
+            <marker date="1519901186444" expanded="true" signature="434:478" ph="UPDATE shop... " />
+            <marker date="1519901186444" expanded="true" signature="481:545" ph="UPDATE shop... " />
+            <marker date="1519901186444" expanded="true" signature="548:562" ph="/* 4.SELECT " />
+            <marker date="1519901186444" expanded="true" signature="564:594" ph="SELECT addre... shop" />
+            <marker date="1519901186444" expanded="true" signature="597:615" ph="SELECT * FRO... book" />
+            <marker date="1519901186444" expanded="true" signature="618:662" ph="SELECT * FRO... book" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab3/lab_3_4+.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+          <folding>
+            <marker date="1521717632025" expanded="true" signature="9:46" ph="SELECT * FRO... child" />
+            <marker date="1521717632025" expanded="true" signature="49:89" ph="SELECT * FRO... child" />
+            <marker date="1521717632025" expanded="true" signature="92:149" ph="SELECT * FRO... child" />
+            <marker date="1521717632025" expanded="true" signature="152:211" ph="SELECT name,... child" />
+            <marker date="1521717632025" expanded="true" signature="223:266" ph="SELECT MIN(i... vaccinated" />
+            <marker date="1521717632025" expanded="true" signature="269:313" ph="SELECT MAX(d... vaccinated" />
+            <marker date="1521717632025" expanded="true" signature="316:345" ph="SELECT AVG(i... type" />
+            <marker date="1521717632025" expanded="true" signature="348:385" ph="SELECT SUM(i... innoculation" />
+            <marker date="1521717632025" expanded="true" signature="397:449" ph="/* количеств... " />
+            <marker date="1521717632025" expanded="true" signature="450:514" ph="SELECT COUNT... innoculation" />
+            <marker date="1521717632025" expanded="true" signature="517:600" ph="/* выбирает " />
+            <marker date="1521717632025" expanded="true" signature="601:686" ph="SELECT COUNT... innoculation" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_3_new.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1521719075981" expanded="true" signature="119:354" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="357:519" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="522:633" ph="INSERT INTO type... " />
+            <marker date="1521719075981" expanded="true" signature="636:654" ph="SELECT * FRO... type" />
+            <marker date="1521719075981" expanded="true" signature="657:827" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="830:925" ph="INSERT INTO method... " />
+            <marker date="1521719075981" expanded="true" signature="928:948" ph="SELECT * FRO... method" />
+            <marker date="1521719075981" expanded="true" signature="951:1119" ph="INSERT INTO innoculation... " />
+            <marker date="1521719075981" expanded="true" signature="1122:1148" ph="SELECT * FRO... innoculation" />
+            <marker date="1521719075981" expanded="true" signature="1151:1380" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="1383:1618" ph="INSERT INTO vaccinated... " />
+            <marker date="1521719075981" expanded="true" signature="1621:1679" ph="ALTER TABLE vaccinated... " />
+            <marker date="1521719075981" expanded="true" signature="1682:1706" ph="SELECT * FRO... vaccinated" />
+            <marker date="1521719075981" expanded="true" signature="1709:1941" ph="CREATE TABLE... IF" />
+            <marker date="1521719075981" expanded="true" signature="1944:2429" ph="INSERT INTO child... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab3/lab3_3.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="33" />
+          <folding>
+            <marker date="1519320031693" expanded="true" signature="108:291" ph="CREATE TABLE... IF" />
+            <marker date="1519320031693" expanded="true" signature="294:324" ph="SELECT * FRO... publishing_house" />
+            <marker date="1519320031693" expanded="true" signature="327:539" ph="INSERT INTO publishing_house... " />
+            <marker date="1519320031693" expanded="true" signature="542:755" ph="CREATE TABLE... IF" />
+            <marker date="1519320031693" expanded="true" signature="758:785" ph="SELECT * FRO... book_delivery" />
+            <marker date="1519320031693" expanded="true" signature="788:922" ph="INSERT INTO book_delivery... " />
+            <marker date="1519320031693" expanded="true" signature="925:1096" ph="CREATE TABLE... IF" />
+            <marker date="1519320031693" expanded="true" signature="1099:1117" ph="SELECT * FRO... shop" />
+            <marker date="1519320031693" expanded="true" signature="1120:1307" ph="INSERT INTO shop... " />
+            <marker date="1519320031693" expanded="true" signature="1310:1516" ph="CREATE TABLE... IF" />
+            <marker date="1519320031693" expanded="true" signature="1519:1537" ph="SELECT * FRO... book" />
+            <marker date="1519320031693" expanded="true" signature="1540:1822" ph="INSERT INTO book... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8870a7ed-1ff8-417b-a052-4830c9fef155/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="190" column="20" lean-forward="true" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
           <folding />
         </state>
       </provider>
