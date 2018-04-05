@@ -178,14 +178,105 @@ FROM production_medicament;
 INSERT order_medicine
 (id_consignment, id_dealer, id_pharmacy, date_order, amount)
 VALUES
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102), CONCAT(FLOOR(2005 + RAND() * 13), "-",FLOOR(1 + RAND() * 11), "-",FLOOR(1 + RAND() * 31)), FLOOR(1 + RAND() * 100));
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100)),
+  (FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 101), FLOOR(1 + RAND() * 102),
+   CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
+   FLOOR(1 + RAND() * 100));
+
+SELECT *
+FROM order_medicine;
+
+SELECT *
+FROM order_medicine, company, dealer
+WHERE order_medicine.id_order = company.id_company = dealer.id_dealer;
+
+SELECT *
+FROM order_medicine;
+
+ALTER TABLE dealer
+  MODIFY COLUMN id_company INT(11),
+  ADD CONSTRAINT id_company
+FOREIGN KEY (id_company)
+REFERENCES company (id_company);
+
+ALTER TABLE production_medicament
+  MODIFY COLUMN id_medicament INT(11),
+  ADD CONSTRAINT FOREIGN KEY (id_medicament)
+REFERENCES medicament (id_medicament);
+
+ALTER TABLE order_medicine
+  MODIFY COLUMN id_consignment INT(11),
+  ADD CONSTRAINT FOREIGN KEY (id_consignment)
+REFERENCES production_medicament (id_consignment);
+
+ALTER TABLE order_medicine
+  MODIFY COLUMN id_dealer INT(11),
+  ADD CONSTRAINT FOREIGN KEY (id_dealer)
+REFERENCES dealer (id_dealer);
+
+ALTER TABLE order_medicine
+  MODIFY COLUMN id_pharmacy INT(11),
+  ADD CONSTRAINT FOREIGN KEY (id_pharmacy)
+REFERENCES pharmacy (id_pharmacy);
+
+SELECT *
+FROM order_medicine;
+
+SELECT *
+FROM medicament;
+
+UPDATE medicament
+SET name = 'Кордерон'
+WHERE id_medicament = 5;
+
+SELECT *
+FROM company;
+
+UPDATE production_medicament
+SET id_company = 56, id_medicament = 5
+WHERE id_consignment = 22;
+
+UPDATE order_medicine
+SET id_consignment = 22
+WHERE id_order = 78;
+
+SELECT *
+FROM order_medicine;
+
+UPDATE company
+SET name = 'Аргус'
+WHERE id_company = 56;
 
 SELECT
-  *
-FROM order_medicine;
+  date_order,
+  amount,
+  medicament.name,
+  pharmacy.name,
+  company.name
+FROM order_medicine
+  LEFT JOIN production_medicament
+    ON production_medicament.id_consignment = order_medicine.id_consignment
+  LEFT JOIN pharmacy
+    ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
+  LEFT JOIN company
+    ON company.id_company = production_medicament.id_company
+  LEFT JOIN medicament
+    ON medicament.id_medicament = production_medicament.id_medicament
+WHERE company.name = 'Аргус' AND medicament.name = 'Кордерон';
