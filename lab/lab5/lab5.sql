@@ -253,6 +253,10 @@ UPDATE production_medicament
 SET id_company = 56, id_medicament = 5
 WHERE id_consignment = 22;
 
+UPDATE production_medicament
+SET id_company = 69
+WHERE id_consignment = 3;
+
 UPDATE order_medicine
 SET id_consignment = 22
 WHERE id_order = 78;
@@ -260,10 +264,20 @@ WHERE id_order = 78;
 SELECT *
 FROM order_medicine;
 
+
 UPDATE company
 SET name = 'Аргус'
 WHERE id_company = 56;
 
+UPDATE company
+SET name = 'Фарма'
+WHERE id_company = 69;
+
+UPDATE company
+SET name = 'Гедеон Рихтер'
+WHERE id_company = 8;
+
+/*2*/
 SELECT
   date_order,
   amount,
@@ -280,3 +294,72 @@ FROM order_medicine
   LEFT JOIN medicament
     ON medicament.id_medicament = production_medicament.id_medicament
 WHERE company.name = 'Аргус' AND medicament.name = 'Кордерон';
+
+#найти все лекарства из order_medicine компании Фарма
+/*3*/
+SELECT DISTINCT medicament.name
+FROM order_medicine
+  INNER JOIN medicament ON order_medicine.id_order = medicament.id_medicament
+  INNER JOIN production_medicament ON order_medicine.id_consignment = production_medicament.id_consignment
+  INNER JOIN company ON production_medicament.id_company = company.id_company
+WHERE company.name = 'Фарма' AND order_medicine.id_order NOT IN
+                                 (
+                                   SELECT order_medicine.id_order
+                                   FROM order_medicine
+                                     LEFT JOIN production_medicament
+                                       ON production_medicament.id_consignment = order_medicine.id_consignment
+                                     LEFT JOIN medicament
+                                       ON production_medicament.id_medicament = medicament.id_medicament
+                                   WHERE (date_order < '2012-05-01'));
+
+#Дать минимальный и максимальный баллы лекарств каждой фирмы, которая производит не менее 100 препаратов,
+#с указанием названий фирмы и лекарства.
+
+#найти компании которая производит не менее 100 препаратов
+#по каждой компании количество препаратов group by
+/*4*/
+SELECT
+  company.name AS company_name,
+  MIN(production_medicament.quality_control),
+  MAX(production_medicament.quality_control)
+FROM production_medicament
+  INNER JOIN company ON production_medicament.id_company = company.id_company
+  INNER JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
+GROUP BY company_name
+HAVING COUNT(DISTINCT production_medicament.id_medicament) > 3;
+
+/*5*/
+SELECT pharmacy.name AS pharmacy_name, dealer.surname AS surname_dealer
+FROM order_medicine
+  LEFT JOIN dealer ON order_medicine.id_dealer = dealer.id_dealer
+  LEFT JOIN pharmacy ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
+  LEFT JOIN company ON dealer.id_company = company.id_company
+WHERE company.name = 'Гедеон Рихтер';
+
+/*6*/
+
+UPDATE production_medicament
+    INNER JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
+SET production_medicament.cost = production_medicament.cost * 0.8
+WHERE production_medicament.cost > 3000 AND medicament.duration_treatment < 7;
+
+SELECT medicament.name, production_medicament.cost, medicament.duration_treatment
+FROM medicament
+  INNER JOIN production_medicament ON medicament.id_medicament = production_medicament.id_medicament
+WHERE production_medicament.cost > 3000 AND medicament.duration_treatment < 7;
+
+SELECT production_medicament.cost
+FROM production_medicament
+WHERE production_medicament.cost > 3000;
+
+UPDATE production_medicament
+SET cost = 3999
+WHERE production_medicament.id_consignment = 34;
+
+UPDATE medicament
+SET duration_treatment = 6
+WHERE medicament.id_medicament = 23;
+
+SELECT medicament.duration_treatment
+FROM medicament
+WHERE duration_treatment < 7;
