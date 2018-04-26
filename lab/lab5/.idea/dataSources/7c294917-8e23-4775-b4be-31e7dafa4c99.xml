@@ -5,7 +5,6 @@
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="hotel_complex">
-      <Visible>1</Visible>
       <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="information_schema">
@@ -919,414 +918,239 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="232" parent="2" name="booking">
+    <table id="232" parent="8" name="company">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="233" parent="2" name="client">
+    <table id="233" parent="8" name="dealer">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="234" parent="2" name="hotel">
+    <table id="234" parent="8" name="medicament">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="235" parent="2" name="room">
+    <table id="235" parent="8" name="order_medicine">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="236" parent="2" name="room_in_booking">
+    <table id="236" parent="8" name="pharmacy">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="237" parent="2" name="room_kind">
+    <table id="237" parent="8" name="production_medicament">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="238" parent="8" name="company">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="239" parent="8" name="dealer">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="240" parent="8" name="medicament">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="241" parent="8" name="order_medicine">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="242" parent="8" name="pharmacy">
-      <Engine>InnoDB</Engine>
-    </table>
-    <table id="243" parent="8" name="production_medicament">
-      <Engine>InnoDB</Engine>
-    </table>
-    <column id="244" parent="232" name="id_booking">
+    <column id="238" parent="232" name="id_company">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="232" name="id_client">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="246" parent="232" name="booking_date">
-      <Position>3</Position>
-      <DataType>date|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="247" parent="232" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_booking</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="248" parent="233" name="id_client">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="249" parent="233" name="fio">
-      <Position>2</Position>
-      <DataType>text|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="250" parent="233" name="phone">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="251" parent="233" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_client</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="252" parent="234" name="id_hotel">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="253" parent="234" name="name">
+    <column id="239" parent="232" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="234" name="number_start">
-      <Position>3</Position>
-      <DataType>tinyint(4)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="255" parent="234" name="address">
-      <Position>4</Position>
-      <DataType>text|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="256" parent="234" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_hotel</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="257" parent="235" name="id_room">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="258" parent="235" name="id_hotel">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="259" parent="235" name="id_room_kind">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="260" parent="235" name="room_number">
-      <Position>4</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="261" parent="235" name="cost_day">
-      <Position>5</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="262" parent="235" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_room</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="263" parent="236" name="id_room_in_booking">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="264" parent="236" name="id_booking">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="265" parent="236" name="id_room">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="266" parent="236" name="arrival_date">
-      <Position>4</Position>
-      <DataType>date|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="267" parent="236" name="date_departure">
-      <Position>5</Position>
-      <DataType>date|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="268" parent="236" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_room_in_booking</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="269" parent="237" name="id_room_kind">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="270" parent="237" name="name">
-      <Position>2</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="271" parent="237" name="min_area">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="272" parent="237" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_room_kind</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="273" parent="238" name="id_company">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="274" parent="238" name="name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="238" name="year_foundation">
+    <column id="240" parent="232" name="year_foundation">
       <Position>3</Position>
       <DataType>year(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="276" parent="238" name="IN_company_name">
+    <index id="241" parent="232" name="IN_company_name">
       <ColNames>name</ColNames>
     </index>
-    <key id="277" parent="238" name="PRIMARY">
+    <key id="242" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_company</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="278" parent="239" name="id_dealer">
+    <column id="243" parent="233" name="id_dealer">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="239" name="surname">
+    <column id="244" parent="233" name="surname">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="239" name="phone">
+    <column id="245" parent="233" name="phone">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="239" name="id_company">
+    <column id="246" parent="233" name="id_company">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="282" parent="239" name="IN_dealer_id_company">
+    <index id="247" parent="233" name="IN_dealer_id_company">
       <ColNames>id_company</ColNames>
     </index>
-    <key id="283" parent="239" name="PRIMARY">
+    <key id="248" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_dealer</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="284" parent="239" name="id_company">
+    <foreign-key id="249" parent="233" name="id_company">
       <ColNames>id_company</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>company</RefTableName>
       <RefColNames>id_company</RefColNames>
     </foreign-key>
-    <column id="285" parent="240" name="id_medicament">
+    <column id="250" parent="234" name="id_medicament">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="240" name="name">
+    <column id="251" parent="234" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="240" name="duration_treatment">
+    <column id="252" parent="234" name="duration_treatment">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="288" parent="240" name="PRIMARY">
+    <key id="253" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_medicament</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="289" parent="241" name="id_order">
+    <column id="254" parent="235" name="id_order">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="241" name="id_consignment">
+    <column id="255" parent="235" name="id_consignment">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="241" name="id_dealer">
+    <column id="256" parent="235" name="id_dealer">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="241" name="id_pharmacy">
+    <column id="257" parent="235" name="id_pharmacy">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="241" name="date_order">
+    <column id="258" parent="235" name="date_order">
       <Position>5</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="241" name="amount">
+    <column id="259" parent="235" name="amount">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="241" name="IN_order_medicine_id_consignment">
+    <index id="260" parent="235" name="IN_order_medicine_id_consignment">
       <ColNames>id_consignment</ColNames>
     </index>
-    <index id="296" parent="241" name="IN_order_medicine_id_dealer">
+    <index id="261" parent="235" name="IN_order_medicine_id_dealer">
       <ColNames>id_dealer</ColNames>
     </index>
-    <index id="297" parent="241" name="id_pharmacy">
+    <index id="262" parent="235" name="id_pharmacy">
       <ColNames>id_pharmacy</ColNames>
     </index>
-    <key id="298" parent="241" name="PRIMARY">
+    <key id="263" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_order</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="241" name="order_medicine_ibfk_1">
+    <foreign-key id="264" parent="235" name="order_medicine_ibfk_1">
       <ColNames>id_consignment</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>production_medicament</RefTableName>
       <RefColNames>id_consignment</RefColNames>
     </foreign-key>
-    <foreign-key id="300" parent="241" name="order_medicine_ibfk_2">
+    <foreign-key id="265" parent="235" name="order_medicine_ibfk_2">
       <ColNames>id_dealer</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>dealer</RefTableName>
       <RefColNames>id_dealer</RefColNames>
     </foreign-key>
-    <foreign-key id="301" parent="241" name="order_medicine_ibfk_3">
+    <foreign-key id="266" parent="235" name="order_medicine_ibfk_3">
       <ColNames>id_pharmacy</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>pharmacy</RefTableName>
       <RefColNames>id_pharmacy</RefColNames>
     </foreign-key>
-    <column id="302" parent="242" name="id_pharmacy">
+    <column id="267" parent="236" name="id_pharmacy">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="242" name="name">
+    <column id="268" parent="236" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="242" name="adress">
+    <column id="269" parent="236" name="adress">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="305" parent="242" name="PRIMARY">
+    <key id="270" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_pharmacy</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="306" parent="243" name="id_consignment">
+    <column id="271" parent="237" name="id_consignment">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="243" name="id_company">
+    <column id="272" parent="237" name="id_company">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="243" name="id_medicament">
+    <column id="273" parent="237" name="id_medicament">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="243" name="cost">
+    <column id="274" parent="237" name="cost">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="243" name="quality_control">
+    <column id="275" parent="237" name="quality_control">
       <Position>5</Position>
       <DataType>tinyint(4)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="311" parent="243" name="IN_production_medicament_id_company_id_medicament">
+    <index id="276" parent="237" name="IN_production_medicament_id_company_id_medicament">
       <ColNames>id_company
 id_medicament</ColNames>
     </index>
-    <index id="312" parent="243" name="IN_production_medicament_id_medicament">
+    <index id="277" parent="237" name="IN_production_medicament_id_medicament">
       <ColNames>id_medicament</ColNames>
     </index>
-    <key id="313" parent="243" name="PRIMARY">
+    <key id="278" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_consignment</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="314" parent="243" name="id_company_fk">
+    <foreign-key id="279" parent="237" name="id_company_fk">
       <ColNames>id_company</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>company</RefTableName>
       <RefColNames>id_company</RefColNames>
     </foreign-key>
-    <foreign-key id="315" parent="243" name="production_medicament_ibfk_1">
+    <foreign-key id="280" parent="237" name="production_medicament_ibfk_1">
       <ColNames>id_medicament</ColNames>
       <RefSchemaName>preparation</RefSchemaName>
       <RefTableName>medicament</RefTableName>

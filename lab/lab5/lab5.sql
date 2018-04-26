@@ -257,109 +257,95 @@ UPDATE production_medicament
 SET id_company = 69
 WHERE id_consignment = 3;
 
-UPDATE order_medicine
-SET id_consignment = 22
-WHERE id_order = 78;
+/*REQUESTS*/
 
-SELECT *
-FROM order_medicine;
+/*2.Выдать информацию по всем заказам лекарства “Кордерон” компании “Аргус” с указанием названий
+  аптек, дат, объема заказов.*/
+EXPLAIN SELECT
+          date_order,
+          amount,
+          medicament.name AS medicament_name,
+          pharmacy.name   AS pharmacy_name,
+          company.name    AS company_name
+        FROM order_medicine
+          LEFT JOIN production_medicament
+            ON production_medicament.id_consignment = order_medicine.id_consignment
+          LEFT JOIN pharmacy
+            ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
+          LEFT JOIN company
+            ON company.id_company = production_medicament.id_company
+          LEFT JOIN medicament
+            ON medicament.id_medicament = production_medicament.id_medicament
+        WHERE company.name = 'Аргус' AND medicament.name = 'Кордерон';
 
+CREATE INDEX IN_order_medicine_id_consignment
+  ON order_medicine (id_consignment);
+CREATE INDEX IN_production_medicament_id_medicament
+  ON production_medicament (id_medicament);
+CREATE INDEX IN_production_medicament_id_company
+  ON production_medicament (id_company);
 
-UPDATE company
-SET name = 'Аргус'
-WHERE id_company = 56;
+DESCRIBE production_medicament;
 
-UPDATE company
-SET name = 'Фарма'
-WHERE id_company = 69;
+/*3.Дать список лекарств компании “Фарма”, на которые не были сделаны заказы до 1.05.12.
+*/
+EXPLAIN SELECT DISTINCT
+          medicament.name AS medicament_name,
+          medicament.id_medicament
+        FROM production_medicament
+          LEFT JOIN order_medicine ON order_medicine.id_consignment = production_medicament.id_consignment
+          LEFT JOIN medicament ON medicament.id_medicament = production_medicament.id_medicament
+          LEFT JOIN company ON production_medicament.id_company = company.id_company
+        WHERE company.name = 'Фарма' AND order_medicine.id_order NOT IN
+                                         (
+                                           SELECT order_medicine.id_order
+                                           FROM order_medicine
+                                             LEFT JOIN production_medicament
+                                               ON production_medicament.id_consignment = order_medicine.id_consignment
+                                             LEFT JOIN medicament
+                                               ON production_medicament.id_medicament = medicament.id_medicament
+                                           WHERE (date_order < '2012-05-01')
+                                         );
 
-UPDATE company
-SET name = 'Гедеон Рихтер'
-WHERE id_company = 8;
+CREATE INDEX IN_company_name
+  ON company (name);
 
-/*2*/
-SELECT
-  date_order,
-  amount,
-  medicament.name,
-  pharmacy.name,
-  company.name
-FROM order_medicine
-  LEFT JOIN production_medicament
-    ON production_medicament.id_consignment = order_medicine.id_consignment
-  LEFT JOIN pharmacy
-    ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
-  LEFT JOIN company
-    ON company.id_company = production_medicament.id_company
-  LEFT JOIN medicament
-    ON medicament.id_medicament = production_medicament.id_medicament
-WHERE company.name = 'Аргус' AND medicament.name = 'Кордерон';
+/*4.Дать минимальный и максимальный баллы лекарств каждой фирмы, которая производит не менее 100 препаратов,
+с указанием названий фирмы и количества лекарства
+*/
+EXPLAIN SELECT
+          company.name AS company_name,
+          MIN(production_medicament.quality_control),
+          MAX(production_medicament.quality_control),
+          COUNT(production_medicament.id_medicament)
+        FROM production_medicament
+          LEFT JOIN company ON production_medicament.id_company = company.id_company
+          LEFT JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
+        GROUP BY company.id_company, company.name
+        HAVING COUNT(production_medicament.id_medicament) > 3;
 
-#найти все лекарства из order_medicine компании Фарма
-/*3*/
-SELECT DISTINCT medicament.name
-FROM order_medicine
-  INNER JOIN medicament ON order_medicine.id_order = medicament.id_medicament
-  INNER JOIN production_medicament ON order_medicine.id_consignment = production_medicament.id_consignment
-  INNER JOIN company ON production_medicament.id_company = company.id_company
-WHERE company.name = 'Фарма' AND order_medicine.id_order NOT IN
-                                 (
-                                   SELECT order_medicine.id_order
-                                   FROM order_medicine
-                                     LEFT JOIN production_medicament
-                                       ON production_medicament.id_consignment = order_medicine.id_consignment
-                                     LEFT JOIN medicament
-                                       ON production_medicament.id_medicament = medicament.id_medicament
-                                   WHERE (date_order < '2012-05-01'));
+CREATE INDEX IN_production_medicament_id_company_id_medicament
+  ON production_medicament (id_company, id_medicament);
 
-#Дать минимальный и максимальный баллы лекарств каждой фирмы, которая производит не менее 100 препаратов,
-#с указанием названий фирмы и лекарства.
+/*5.Дать списки сделавших заказы аптек по всем дилерам компании “Гедеон Рихтер”.
+Если у дилера нет заказов, в названии аптеки проставить NULL.*/
+EXPLAIN SELECT
+          dealer.surname AS surname_dealer,
+          pharmacy.name  AS pharmacy_name
+        FROM dealer
+          LEFT JOIN order_medicine ON order_medicine.id_dealer = dealer.id_dealer
+          LEFT JOIN pharmacy ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
+          LEFT JOIN company ON dealer.id_company = company.id_company
+        WHERE company.name = 'Гедеон Рихтер';
 
-#найти компании которая производит не менее 100 препаратов
-#по каждой компании количество препаратов group by
-/*4*/
-SELECT
-  company.name AS company_name,
-  MIN(production_medicament.quality_control),
-  MAX(production_medicament.quality_control)
-FROM production_medicament
-  INNER JOIN company ON production_medicament.id_company = company.id_company
-  INNER JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
-GROUP BY company_name
-HAVING COUNT(DISTINCT production_medicament.id_medicament) > 3;
+CREATE INDEX IN_order_medicine_id_dealer
+  ON order_medicine (id_dealer);
+CREATE INDEX IN_dealer_id_company
+  ON dealer (id_company);
 
-/*5*/
-SELECT pharmacy.name AS pharmacy_name, dealer.surname AS surname_dealer
-FROM order_medicine
-  LEFT JOIN dealer ON order_medicine.id_dealer = dealer.id_dealer
-  LEFT JOIN pharmacy ON pharmacy.id_pharmacy = order_medicine.id_pharmacy
-  LEFT JOIN company ON dealer.id_company = company.id_company
-WHERE company.name = 'Гедеон Рихтер';
-
-/*6*/
-
+/*6.Уменьшить на 20% стоимость всех лекарств, если она превышает 3000, а длительность лечения не более 7 дней.
+*/
 UPDATE production_medicament
-    INNER JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
+  LEFT JOIN medicament ON production_medicament.id_medicament = medicament.id_medicament
 SET production_medicament.cost = production_medicament.cost * 0.8
-WHERE production_medicament.cost > 3000 AND medicament.duration_treatment < 7;
-
-SELECT medicament.name, production_medicament.cost, medicament.duration_treatment
-FROM medicament
-  INNER JOIN production_medicament ON medicament.id_medicament = production_medicament.id_medicament
-WHERE production_medicament.cost > 3000 AND medicament.duration_treatment < 7;
-
-SELECT production_medicament.cost
-FROM production_medicament
-WHERE production_medicament.cost > 3000;
-
-UPDATE production_medicament
-SET cost = 3999
-WHERE production_medicament.id_consignment = 34;
-
-UPDATE medicament
-SET duration_treatment = 6
-WHERE medicament.id_medicament = 23;
-
-SELECT medicament.duration_treatment
-FROM medicament
-WHERE duration_treatment < 7;
+WHERE production_medicament.cost > 3000 AND medicament.duration_treatment <= 7;
