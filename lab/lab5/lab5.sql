@@ -96,13 +96,6 @@ VALUES
   (CONCAT(CHAR(FLOOR(65 + RAND() * 26)), CHAR(FLOOR(65 + RAND() * 26)), "-", FLOOR(10 + RAND() * 999)),
    FLOOR(1980 + RAND() * 38));
 
-SELECT *
-FROM company;
-
-DROP TABLE production_medicament;
-
-SHOW TABLES;
-
 UPDATE company
 SET name = CONCAT(CHAR(FLOOR(65 + RAND() * 26)), CHAR(FLOOR(65 + RAND() * 26)), "-", FLOOR(10 + RAND() * 999));
 
@@ -136,9 +129,6 @@ SET phone = CONCAT(FLOOR(1000 + RAND() * 100000));
 UPDATE dealer
 SET id_company = FLOOR(1 + RAND() * 99);
 
-SELECT *
-FROM dealer;
-
 INSERT medicament
 (name, duration_treatment)
 VALUES
@@ -146,9 +136,6 @@ VALUES
           CHAR(FLOOR(109 + RAND() * 11))), FLOOR(1 + RAND() * 356)),
   (CONCAT(CHAR(FLOOR(109 + RAND() * 11)), "и", CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
           CHAR(FLOOR(109 + RAND() * 11))), FLOOR(1 + RAND() * 356));
-
-SELECT *
-FROM medicament;
 
 INSERT pharmacy
 (name, adress)
@@ -162,18 +149,12 @@ VALUES
    CONCAT(CHAR(FLOOR(109 + RAND() * 11)), "вах", CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
           CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11))));
 
-SELECT *
-FROM pharmacy;
-
 INSERT production_medicament
 (id_company, id_medicament, cost, quality_control)
 VALUES
   (FLOOR(1 + RAND() * 99), FLOOR(1 + RAND() * 101), FLOOR(20 + RAND() * 300), FLOOR(1 + RAND() * 9)),
   (FLOOR(1 + RAND() * 99), FLOOR(1 + RAND() * 101), FLOOR(20 + RAND() * 200), FLOOR(1 + RAND() * 9)),
   (FLOOR(1 + RAND() * 99), FLOOR(1 + RAND() * 101), FLOOR(20 + RAND() * 100), FLOOR(1 + RAND() * 9));
-
-SELECT *
-FROM production_medicament;
 
 INSERT order_medicine
 (id_consignment, id_dealer, id_pharmacy, date_order, amount)
@@ -200,15 +181,6 @@ VALUES
    CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)),
    FLOOR(1 + RAND() * 100));
 
-SELECT *
-FROM order_medicine;
-
-SELECT *
-FROM order_medicine, company, dealer
-WHERE order_medicine.id_order = company.id_company = dealer.id_dealer;
-
-SELECT *
-FROM order_medicine;
 
 ALTER TABLE dealer
   MODIFY COLUMN id_company INT(11),
@@ -236,18 +208,9 @@ ALTER TABLE order_medicine
   ADD CONSTRAINT FOREIGN KEY (id_pharmacy)
 REFERENCES pharmacy (id_pharmacy);
 
-SELECT *
-FROM order_medicine;
-
-SELECT *
-FROM medicament;
-
 UPDATE medicament
 SET name = 'Кордерон'
 WHERE id_medicament = 5;
-
-SELECT *
-FROM company;
 
 UPDATE production_medicament
 SET id_company = 56, id_medicament = 5
@@ -278,14 +241,9 @@ EXPLAIN SELECT
             ON medicament.id_medicament = production_medicament.id_medicament
         WHERE company.name = 'Аргус' AND medicament.name = 'Кордерон';
 
-CREATE INDEX IN_order_medicine_id_consignment
-  ON order_medicine (id_consignment);
-CREATE INDEX IN_production_medicament_id_medicament
-  ON production_medicament (id_medicament);
-CREATE INDEX IN_production_medicament_id_company
-  ON production_medicament (id_company);
-
-DESCRIBE production_medicament;
+CREATE INDEX IN_order_medicine_id_consignment ON order_medicine (id_consignment);
+CREATE INDEX IN_production_medicament_id_medicament ON production_medicament (id_medicament);
+CREATE INDEX IN_production_medicament_id_company ON production_medicament (id_company);
 
 /*3.Дать список лекарств компании “Фарма”, на которые не были сделаны заказы до 1.05.12.
 */
@@ -307,8 +265,7 @@ EXPLAIN SELECT DISTINCT
                                            WHERE (date_order < '2012-05-01')
                                          );
 
-CREATE INDEX IN_company_name
-  ON company (name);
+CREATE INDEX IN_company_name ON company (name);
 
 /*4.Дать минимальный и максимальный баллы лекарств каждой фирмы, которая производит не менее 100 препаратов,
 с указанием названий фирмы и количества лекарства
@@ -324,8 +281,7 @@ EXPLAIN SELECT
         GROUP BY company.id_company, company.name
         HAVING COUNT(production_medicament.id_medicament) > 3;
 
-CREATE INDEX IN_production_medicament_id_company_id_medicament
-  ON production_medicament (id_company, id_medicament);
+CREATE INDEX IN_production_medicament_id_company_id_medicament ON production_medicament (id_company, id_medicament);
 
 /*5.Дать списки сделавших заказы аптек по всем дилерам компании “Гедеон Рихтер”.
 Если у дилера нет заказов, в названии аптеки проставить NULL.*/
@@ -338,10 +294,8 @@ EXPLAIN SELECT
           LEFT JOIN company ON dealer.id_company = company.id_company
         WHERE company.name = 'Гедеон Рихтер';
 
-CREATE INDEX IN_order_medicine_id_dealer
-  ON order_medicine (id_dealer);
-CREATE INDEX IN_dealer_id_company
-  ON dealer (id_company);
+CREATE INDEX IN_order_medicine_id_dealer ON order_medicine (id_dealer);
+CREATE INDEX IN_dealer_id_company ON dealer (id_company);
 
 /*6.Уменьшить на 20% стоимость всех лекарств, если она превышает 3000, а длительность лечения не более 7 дней.
 */
