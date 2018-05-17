@@ -230,7 +230,7 @@ WHERE id_room_in_booking = 13;
 /*REQUESTS*/
 
 /* 1.Выдать информацию о клиентах гостиницы “Алтай”, проживающих в номерах категории “люкс” на сегодня. */
-SELECT
+EXPLAIN SELECT
   client.fio,
   client.phone,
   room.room_number
@@ -243,8 +243,13 @@ FROM room_in_booking
 WHERE hotel.name = 'Алтай' AND room_kind.category_name = 'люкс' AND
       NOW() BETWEEN room_in_booking.arrival_date AND room_in_booking.date_departure;
 
+CREATE INDEX IN_hotel_number ON hotel (name);
+CREATE INDEX IN_category_name ON room_kind (category_name);
+CREATE INDEX IN_arrival_date ON room_in_booking (arrival_date);
+CREATE INDEX IN_date_departure ON room_in_booking (date_departure);
+
 /* 2.Дать список свободных номеров всех гостиниц на 30.05.12.*/
-SELECT
+EXPLAIN SELECT
   hotel.name AS hotel_name,
   room.room_number
 FROM room
@@ -253,7 +258,7 @@ FROM room
 WHERE '2012-05-30' NOT BETWEEN room_in_booking.date_departure AND room_in_booking.arrival_date;
 
 /* 3.Дать количество проживающих в гостинице “Восток” на 25.05.12 по каждой категории номеров */
-SELECT
+EXPLAIN SELECT
   room_kind.category_name,
   COUNT(room_kind.id_room_kind) AS count_of_quests
 FROM room_in_booking
@@ -264,34 +269,61 @@ WHERE '2012-05-25' BETWEEN room_in_booking.arrival_date AND room_in_booking.date
       AND hotel.name = 'Восток'
 GROUP BY room_kind.category_name;
 
+SELECT *
+FROM hotel WHERE name = 'Космос';
+
+SELECT *
+FROM room WHERE id_hotel = 9;
+
+SELECT *
+FROM room_in_booking
+WHERE id_room = 35 ;
+
+SELECT * FROM booking WHERE id_booking = 11;
+SELECT * FROM client WHERE id_client = 24;
+
+UPDATE room_in_booking
+SET date_departure = '2012-04-27';
+
 /*4. Дать список последних проживавших клиентов по всем комнатам гостиницы “Космос”,
  выехавшим в апреле 2012 с указанием даты выезда. */
 
 CREATE TEMPORARY TABLE IF NOT EXISTS room_and_departure_date
 (
-  id INT(11) PRIMARY KEY AUTO_INCREMENT,
-  room_number INT(11),
+  id             INT(11) PRIMARY KEY AUTO_INCREMENT,
+  room_number    INT(11),
   departure_date DATE
 );
 TRUNCATE room_and_departure_date;
 
+SELECT
+  *
+FROM room_in_booking
+  LEFT JOIN room ON room.id_room = room_in_booking.id_room;
+
 INSERT INTO room_and_departure_date (room_number, departure_date)
 SELECT
-  room.room_number, MAX(room_in_booking.date_departure)
-FROM room_in_booking
-  LEFT JOIN room ON room.id_room = room_in_booking.id_room
-  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
-  LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
-  LEFT JOIN client ON booking.id_client = client.id_client
-WHERE MONTH(room_in_booking.date_departure) = 4
-      AND hotel.name = 'Космос'
-GROUP BY room.room_number;
+    room.room_number,
+    MAX(room_in_booking.date_departure)
+  FROM room_in_booking
+    LEFT JOIN room ON room.id_room = room_in_booking.id_room
+    LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+    LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
+    LEFT JOIN client ON booking.id_client = client.id_client
+  WHERE MONTH(room_in_booking.date_departure) = 4
+        AND hotel.name = 'Космос'
+  GROUP BY room.room_number;
+
+SELECT room_and_departure_date.departure_date, client.fio
+FROM room_and_departure_date
+LEFT JOIN room_in_booking ON room_in_booking.id_booking = room_and_departure_date.id
+LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
+LEFT JOIN client ON booking.id_client = client.id_client;
 
 SELECT *
 FROM room_and_departure_date;
 
-
-/* Продлить до 30.05.12 дату проживания в гостинице “Сокол” всем клиентам комнат категории “люкс”,
+/*5. Продлить до 30.05.12 дату проживания в гостинице “Сокол” всем клиентам комнат категории “люкс”,
  которые заселились 15.05.12, а выезжают 28.05.12 */
 
 UPDATE room_in_booking
@@ -311,3 +343,9 @@ FROM
 WHERE hotel.name = 'Сокол' AND room_kind.category_name = 'люкс'
       AND room_in_booking.date_departure = '2012-05-28' AND room_in_booking.arrival_date = '2012-05-15';
 
+/* 6. Привести пример транзакции при создании брони. */
+
+START TRANSACTION;
+SET @id_client = 19;
+INSERT INTO booking VALUES (NULL, @id_client, '2018-05-18');
+COMMIT;

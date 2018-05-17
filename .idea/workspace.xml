@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dce032c-ed50-44dd-965d-72668ab29d25" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de/storage_v2/_src_/schema/hotel_complex.JdnxZQ.meta" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8870a7ed-1ff8-417b-a052-4830c9fef155.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8870a7ed-1ff8-417b-a052-4830c9fef155.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/lab/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de.xml" afterPath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/lab/.idea/sqldialects.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/lab5/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/lab5/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/lab6/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/lab6/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/lab/lab6/lab6.sql" afterPath="$PROJECT_DIR$/lab/lab6/lab6.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +30,8 @@
       <file leaf-file-name="lab5.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="287" column="14" lean-forward="true" selection-start-line="287" selection-start-column="14" selection-end-line="287" selection-end-column="14" />
+            <state relative-caret-position="-294">
+              <caret line="261" column="45" lean-forward="false" selection-start-line="261" selection-start-column="45" selection-end-line="261" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -48,8 +40,8 @@
       <file leaf-file-name="lab6.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab/lab6/lab6.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-413">
-              <caret line="243" column="84" lean-forward="true" selection-start-line="243" selection-start-column="84" selection-end-line="243" selection-end-column="84" />
+            <state relative-caret-position="300">
+              <caret line="317" column="28" lean-forward="true" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -219,17 +211,18 @@
       <workItem from="1523529619896" duration="5871000" />
       <workItem from="1523646979972" duration="141000" />
       <workItem from="1526531345544" duration="14117000" />
-      <workItem from="1526554694920" duration="249000" />
+      <workItem from="1526554694920" duration="7508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68022000" />
+    <option name="totallyTimeSpent" value="75281000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1600" height="904" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3260026" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -245,7 +238,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36351874" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -634,16 +626,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="287" column="14" lean-forward="true" selection-start-line="287" selection-start-column="14" selection-end-line="287" selection-end-column="14" />
+        <state relative-caret-position="-294">
+          <caret line="261" column="45" lean-forward="false" selection-start-line="261" selection-start-column="45" selection-end-line="261" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab/lab6/lab6.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-413">
-          <caret line="243" column="84" lean-forward="true" selection-start-line="243" selection-start-column="84" selection-end-line="243" selection-end-column="84" />
+        <state relative-caret-position="300">
+          <caret line="317" column="28" lean-forward="true" selection-start-line="317" selection-start-column="28" selection-end-line="317" selection-end-column="28" />
           <folding />
         </state>
       </provider>
