@@ -287,7 +287,6 @@ SET date_departure = '2012-04-27';
 
 /*4. Дать список последних проживавших клиентов по всем комнатам гостиницы “Космос”,
  выехавшим в апреле 2012 с указанием даты выезда. */
-
 CREATE TEMPORARY TABLE IF NOT EXISTS room_and_departure_date
 (
   id             INT(11) PRIMARY KEY AUTO_INCREMENT,
@@ -317,7 +316,6 @@ LEFT JOIN client ON booking.id_client = client.id_client;
 
 /*5. Продлить до 30.05.12 дату проживания в гостинице “Сокол” всем клиентам комнат категории “люкс”,
  которые заселились 15.05.12, а выезжают 28.05.12 */
-
 UPDATE room_in_booking
   LEFT JOIN room ON room_in_booking.id_room = room.id_room
   LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
@@ -336,8 +334,9 @@ WHERE hotel.name = 'Сокол' AND room_kind.category_name = 'люкс'
       AND room_in_booking.date_departure = '2012-05-28' AND room_in_booking.arrival_date = '2012-05-15';
 
 /* 6. Привести пример транзакции при создании брони. */
-
 START TRANSACTION;
 SET @id_client = 19;
 INSERT INTO booking VALUES (NULL, @id_client, '2018-05-18');
+SET @last_booking = LAST_INSERT_ID();
+INSERT INTO room_in_booking VALUES (NULL, @last_booking, 34, '2018-05-30', '2018-06-12');
 COMMIT;
