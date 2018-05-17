@@ -21,12 +21,21 @@ CREATE TABLE IF NOT EXISTS hotel
 
 CREATE TABLE IF NOT EXISTS room_kind
 (
-  id_room_kind INT(11) NOT NULL AUTO_INCREMENT,
-  name         INT(11),
-  min_area     INT(11),
+  id_room_kind  INT(11) NOT NULL AUTO_INCREMENT,
+  category_name VARCHAR(255),
+  min_area      INT(11),
   PRIMARY KEY (id_room_kind)
 )
   ENGINE = InnoDB;
+
+SELECT *
+FROM hotel;
+
+INSERT room_kind (category_name, min_area)
+VALUES ('люкс', 225),
+  ('эконом', 100);
+
+SHOW ENGINE INNODB STATUS;
 
 CREATE TABLE IF NOT EXISTS room
 (
@@ -35,7 +44,9 @@ CREATE TABLE IF NOT EXISTS room
   id_room_kind INT(11),
   room_number  INT(11),
   cost_day     INT(11),
-  PRIMARY KEY (id_room)
+  PRIMARY KEY (id_room),
+  FOREIGN KEY (id_hotel) REFERENCES hotel (id_hotel),
+  FOREIGN KEY (id_room_kind) REFERENCES room_kind (id_room_kind)
 )
   ENGINE = InnoDB;
 
@@ -53,7 +64,8 @@ CREATE TABLE IF NOT EXISTS booking
   id_booking   INT(11) NOT NULL AUTO_INCREMENT,
   id_client    INT(11),
   booking_date DATE,
-  PRIMARY KEY (id_booking)
+  PRIMARY KEY (id_booking),
+  FOREIGN KEY (id_client) REFERENCES client (id_client)
 )
   ENGINE = InnoDB;
 
@@ -64,9 +76,24 @@ CREATE TABLE IF NOT EXISTS room_in_booking
   id_room            INT(11),
   arrival_date       DATE,
   date_departure     DATE,
-  PRIMARY KEY (id_room_in_booking)
+  PRIMARY KEY (id_room_in_booking),
+  FOREIGN KEY (id_booking) REFERENCES booking (id_booking),
+  FOREIGN KEY (id_room) REFERENCES room (id_room)
 )
   ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS category
+(
+  id_category   INT(11) NOT NULL AUTO_INCREMENT,
+  category_name VARCHAR(255),
+  PRIMARY KEY (id_category)
+);
+
+UPDATE hotel
+SET name = 'Алтай'
+WHERE id_hotel = 6;
+
+DESCRIBE booking;
 
 /*FILL TABLES*/
 
@@ -97,62 +124,190 @@ VALUES (CONCAT(CHAR(FLOOR(65 + RAND() * 26)), CHAR(FLOOR(65 + RAND() * 26)), "-"
           CHAR(FLOOR(109 + RAND() * 11))),
    FLOOR(1 + RAND() * 5), CONCAT(CHAR(FLOOR(65 + RAND() * 26)), CHAR(FLOOR(65 + RAND() * 26))));
 
-INSERT room_kind
-(name, min_area)
-VALUES
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100)),
-  (FLOOR(1 + RAND() * 2), FLOOR(10 + RAND() * 100));
+
+SELECT *
+FROM hotel;
+
+SELECT *
+FROM room_kind;
+SELECT *
+FROM room;
+
+SHOW TABLES;
+SELECT *
+FROM booking;
+
+SHOW TABLES;
+SELECT *
+FROM room;
 
 INSERT room
 (id_hotel, id_room_kind, room_number, cost_day)
 VALUES
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
-  (FLOOR(1 + RAND() * 97), FLOOR(1 + RAND() * 112), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000));
+  (FLOOR(1 + RAND() * 24), FLOOR(1 + RAND() * 2), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000)),
+  (FLOOR(1 + RAND() * 24), FLOOR(1 + RAND() * 2), FLOOR(1 + RAND() * 1000), FLOOR(1 + RAND() * 10000));
 
 INSERT client
 (fio, phone)
 VALUES (CONCAT(CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
                CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11))),
-        '134632'),
+        '34312'),
   (CONCAT(CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
           CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11))),
-   '568423567'),
+   '3452'),
   (CONCAT(CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
           CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11))),
-   '557854325'),
+   '2823445314213'),
   (CONCAT(CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)),
           CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11)), CHAR(FLOOR(109 + RAND() * 11))),
-   '843522557');
+   '26276553');
 
+
+INSERT booking
+(id_client, booking_date)
+VALUES (
+  FLOOR(1 + RAND() * 29), CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31))
+);
+
+SELECT *
+FROM room_in_booking;
+
+SELECT *
+FROM booking;
+SELECT *
+FROM room;
+
+INSERT room_in_booking
+(id_booking, id_room, arrival_date)
+VALUES (
+  FLOOR(1 + RAND() * 21), FLOOR(29 + RAND() * 86),
+  CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31))
+);
+
+INSERT room_in_booking
+(date_departure)
+VALUES (CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31)));
+
+
+UPDATE room_in_booking
+SET date_departure = CONCAT(FLOOR(2005 + RAND() * 13), "-", FLOOR(1 + RAND() * 11), "-", FLOOR(1 + RAND() * 31))
+WHERE id_room_in_booking = 49;
+
+DELETE FROM room_in_booking
+WHERE id_room_in_booking > 29;
+
+SHOW TABLES;
 SELECT *
 FROM room_kind;
 
 SELECT *
-FROM client;
+FROM room
+WHERE id_hotel = 6;
 
-SHOW TABLES ;
+UPDATE room_in_booking
+SET id_room = 57
+WHERE id_room_in_booking = 18;
+
+SELECT *
+FROM hotel;
+UPDATE hotel
+SET name = 'Сокол'
+WHERE id_hotel = 23;
+
+SELECT *
+FROM room
+WHERE id_hotel = 12;
+
+SELECT *
+FROM room_in_booking
+WHERE id_room = 82;
+
+UPDATE room_in_booking
+SET id_room = 82
+WHERE id_room_in_booking = 13;
+
+
+/*REQUESTS*/
+
+/* 1.Выдать информацию о клиентах гостиницы “Алтай”, проживающих в номерах категории “люкс” на сегодня. */
+SELECT
+  client.fio,
+  client.phone,
+  room.room_number
+FROM room_in_booking
+  LEFT JOIN booking ON booking.id_booking = room_in_booking.id_booking
+  LEFT JOIN room ON room_in_booking.id_room = room.id_room
+  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+  LEFT JOIN room_kind ON room.id_room_kind = room_kind.id_room_kind
+  LEFT JOIN client ON booking.id_client = client.id_client
+WHERE hotel.name = 'Алтай' AND room_kind.category_name = 'люкс' AND
+      NOW() BETWEEN room_in_booking.arrival_date AND room_in_booking.date_departure;
+
+/* 2.Дать список свободных номеров всех гостиниц на 30.05.12.*/
+SELECT
+  hotel.name AS hotel_name,
+  room.room_number
+FROM room
+  LEFT JOIN room_in_booking ON room_in_booking.id_room = room.id_room
+  INNER JOIN hotel ON room.id_hotel = hotel.id_hotel
+WHERE '2012-05-30' NOT BETWEEN room_in_booking.date_departure AND room_in_booking.arrival_date;
+
+/* 3.Дать количество проживающих в гостинице “Восток” на 25.05.12 по каждой категории номеров */
+SELECT
+  room_kind.category_name,
+  COUNT(room_kind.id_room_kind) AS count_of_quests
+FROM room_in_booking
+  LEFT JOIN room ON room_in_booking.id_room = room.id_room
+  LEFT JOIN room_kind ON room.id_room_kind = room_kind.id_room_kind
+  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+WHERE '2012-05-25' BETWEEN room_in_booking.arrival_date AND room_in_booking.date_departure
+      AND hotel.name = 'Восток'
+GROUP BY room_kind.category_name;
+
+/*4. Дать список последних проживавших клиентов по всем комнатам гостиницы “Космос”,
+ выехавшим в апреле 2012 с указанием даты выезда. */
+
+CREATE TEMPORARY TABLE IF NOT EXISTS room_and_departure_date
+(
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  room_number INT(11),
+  departure_date DATE
+);
+TRUNCATE room_and_departure_date;
+
+INSERT INTO room_and_departure_date (room_number, departure_date)
+SELECT
+  room.room_number, MAX(room_in_booking.date_departure)
+FROM room_in_booking
+  LEFT JOIN room ON room.id_room = room_in_booking.id_room
+  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+  LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
+  LEFT JOIN client ON booking.id_client = client.id_client
+WHERE MONTH(room_in_booking.date_departure) = 4
+      AND hotel.name = 'Космос'
+GROUP BY room.room_number;
+
+SELECT *
+FROM room_and_departure_date;
+
+
+/* Продлить до 30.05.12 дату проживания в гостинице “Сокол” всем клиентам комнат категории “люкс”,
+ которые заселились 15.05.12, а выезжают 28.05.12 */
+
+UPDATE room_in_booking
+  LEFT JOIN room ON room_in_booking.id_room = room.id_room
+  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+  LEFT JOIN room_kind ON room.id_room_kind = room_kind.id_room_kind
+SET room_in_booking.date_departure = '2012-05-30'
+WHERE hotel.name = 'Сокол' AND room_kind.category_name = 'люкс'
+      AND room_in_booking.date_departure = '2012-05-28' AND room_in_booking.arrival_date = '2012-05-15';
+
+SELECT *
+FROM
+  room_in_booking
+  LEFT JOIN room ON room_in_booking.id_room = room.id_room
+  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
+  LEFT JOIN room_kind ON room.id_room_kind = room_kind.id_room_kind
+WHERE hotel.name = 'Сокол' AND room_kind.category_name = 'люкс'
+      AND room_in_booking.date_departure = '2012-05-28' AND room_in_booking.arrival_date = '2012-05-15';
+

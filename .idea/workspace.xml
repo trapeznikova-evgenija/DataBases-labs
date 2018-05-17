@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dce032c-ed50-44dd-965d-72668ab29d25" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/lab/lab6/lab6.sql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de/storage_v2/_src_/schema/hotel_complex.JdnxZQ.meta" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8870a7ed-1ff8-417b-a052-4830c9fef155.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8870a7ed-1ff8-417b-a052-4830c9fef155.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lab/lab5/lab5.sql" afterPath="$PROJECT_DIR$/lab/lab5/lab5.sql" />
+      <change beforePath="$PROJECT_DIR$/lab/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/lab/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de.xml" afterPath="$PROJECT_DIR$/lab/.idea/dataSources/92613b16-42dc-4c09-8963-4de514ec31de.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/lab/.idea/sqldialects.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/lab5/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/lab5/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/lab6/.idea/workspace.xml" afterPath="$PROJECT_DIR$/lab/lab6/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/lab/lab6/lab6.sql" afterPath="$PROJECT_DIR$/lab/lab6/lab6.sql" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,21 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lab5.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lab5.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="327" column="0" lean-forward="true" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
+            <state relative-caret-position="318">
+              <caret line="287" column="14" lean-forward="true" selection-start-line="287" selection-start-column="14" selection-end-line="287" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lab6.sql" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lab6.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab/lab6/lab6.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2376">
-              <caret line="132" column="90" lean-forward="false" selection-start-line="132" selection-start-column="90" selection-end-line="132" selection-end-column="90" />
+            <state relative-caret-position="-413">
+              <caret line="243" column="84" lean-forward="true" selection-start-line="243" selection-start-column="84" selection-end-line="243" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -88,8 +93,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/30839acd-f6d5-4938-8fd8-c928c1309b16/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/01b5fc05-2de4-4517-a8f4-fa4ab997448a/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/27c919d1-2f15-4f74-8789-ed16815e162e/console.sql" />
-        <option value="$PROJECT_DIR$/lab/lab6/lab6.sql" />
         <option value="$PROJECT_DIR$/lab/lab5/lab5.sql" />
+        <option value="$PROJECT_DIR$/lab/lab6/lab6.sql" />
       </list>
     </option>
   </component>
@@ -121,7 +126,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -153,10 +157,17 @@
               <item name="lab" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lab5" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="DataBases-labs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataBases-labs" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lab6" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -207,11 +218,13 @@
       <workItem from="1523517432544" duration="5702000" />
       <workItem from="1523529619896" duration="5871000" />
       <workItem from="1523646979972" duration="141000" />
+      <workItem from="1526531345544" duration="14117000" />
+      <workItem from="1526554694920" duration="249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53656000" />
+    <option name="totallyTimeSpent" value="68022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1600" height="904" extended-state="6" />
@@ -600,14 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab/lab6/lab6.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="132" column="90" lean-forward="false" selection-start-line="132" selection-start-column="90" selection-end-line="132" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab/lab4/lab4_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -629,8 +634,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab/lab5/lab5.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="327" column="0" lean-forward="true" selection-start-line="327" selection-start-column="0" selection-end-line="327" selection-end-column="0" />
+        <state relative-caret-position="318">
+          <caret line="287" column="14" lean-forward="true" selection-start-line="287" selection-start-column="14" selection-end-line="287" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab/lab6/lab6.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-413">
+          <caret line="243" column="84" lean-forward="true" selection-start-line="243" selection-start-column="84" selection-end-line="243" selection-end-column="84" />
           <folding />
         </state>
       </provider>
