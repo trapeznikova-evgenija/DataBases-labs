@@ -291,37 +291,29 @@ SET date_departure = '2012-04-27';
 CREATE TEMPORARY TABLE IF NOT EXISTS room_and_departure_date
 (
   id             INT(11) PRIMARY KEY AUTO_INCREMENT,
-  room_number    INT(11),
+  id_room    INT(11),
   departure_date DATE
 );
+
 TRUNCATE room_and_departure_date;
 
+INSERT INTO room_and_departure_date (id_room, departure_date)
 SELECT
-  *
-FROM room_in_booking
-  LEFT JOIN room ON room.id_room = room_in_booking.id_room;
-
-INSERT INTO room_and_departure_date (room_number, departure_date)
-SELECT
-    room.room_number,
+    room_in_booking.id_room,
     MAX(room_in_booking.date_departure)
   FROM room_in_booking
     LEFT JOIN room ON room.id_room = room_in_booking.id_room
     LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
     LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
     LEFT JOIN client ON booking.id_client = client.id_client
-  WHERE MONTH(room_in_booking.date_departure) = 4
-        AND hotel.name = 'Космос'
-  GROUP BY room.room_number;
+  WHERE MONTH(room_in_booking.date_departure) = 4 AND hotel.name = 'Космос'
+  GROUP BY room_in_booking.id_room;
 
 SELECT room_and_departure_date.departure_date, client.fio
 FROM room_and_departure_date
-LEFT JOIN room_in_booking ON room_in_booking.id_booking = room_and_departure_date.id
+LEFT JOIN room_in_booking ON room_in_booking.id_room = room_and_departure_date.id_room
 LEFT JOIN booking ON room_in_booking.id_booking = booking.id_booking
 LEFT JOIN client ON booking.id_client = client.id_client;
-
-SELECT *
-FROM room_and_departure_date;
 
 /*5. Продлить до 30.05.12 дату проживания в гостинице “Сокол” всем клиентам комнат категории “люкс”,
  которые заселились 15.05.12, а выезжают 28.05.12 */
