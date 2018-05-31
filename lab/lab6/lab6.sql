@@ -229,19 +229,30 @@ WHERE id_room_in_booking = 13;
 
 /*REQUESTS*/
 
+SELECT *
+FROM hotel;
+
+SELECT *
+FROM room_in_booking;
+
+SELECT *
+FROM room
+WHERE id_room = 82;
+
+UPDATE room
+SET id_room_kind = 1
+WHERE id_room = 82;
+
+SELECT *
+FROM room_in_booking;
+
+UPDATE room_in_booking
+SET date_departure = '2018-06-9'
+WHERE id_room_in_booking = 13;
+
+
 /* 1.Выдать информацию о клиентах гостиницы “Алтай”, проживающих в номерах категории “люкс” на сегодня. */
-EXPLAIN SELECT
-  client.fio,
-  client.phone,
-  room.room_number
-FROM room_in_booking
-  LEFT JOIN booking ON booking.id_booking = room_in_booking.id_booking
-  LEFT JOIN room ON room_in_booking.id_room = room.id_room
-  LEFT JOIN hotel ON room.id_hotel = hotel.id_hotel
-  LEFT JOIN room_kind ON room.id_room_kind = room_kind.id_room_kind
-  LEFT JOIN client ON booking.id_client = client.id_client
-WHERE hotel.name = 'Алтай' AND room_kind.category_name = 'люкс' AND
-      NOW() BETWEEN room_in_booking.arrival_date AND room_in_booking.date_departure;
+
 
 CREATE INDEX IN_hotel_number ON hotel (name);
 CREATE INDEX IN_category_name ON room_kind (category_name);
@@ -269,27 +280,12 @@ WHERE '2012-05-25' BETWEEN room_in_booking.arrival_date AND room_in_booking.date
       AND hotel.name = 'Восток'
 GROUP BY room_kind.category_name;
 
-SELECT *
-FROM hotel WHERE name = 'Космос';
-
-SELECT *
-FROM room WHERE id_hotel = 9;
-
-SELECT *
-FROM room_in_booking
-WHERE id_room = 35 ;
-
-SELECT * FROM booking WHERE id_booking = 11;
-SELECT * FROM client WHERE id_client = 24;
-
-UPDATE room_in_booking
-SET date_departure = '2012-04-27';
 
 /*4. Дать список последних проживавших клиентов по всем комнатам гостиницы “Космос”,
  выехавшим в апреле 2012 с указанием даты выезда. */
 CREATE TEMPORARY TABLE IF NOT EXISTS room_and_departure_date
 (
-  id             INT(11) PRIMARY KEY AUTO_INCREMENT,
+  id         INT(11) PRIMARY KEY AUTO_INCREMENT,
   id_room    INT(11),
   departure_date DATE
 );
@@ -333,6 +329,9 @@ FROM
 WHERE hotel.name = 'Сокол' AND room_kind.category_name = 'люкс'
       AND room_in_booking.date_departure = '2012-05-28' AND room_in_booking.arrival_date = '2012-05-15';
 
+SELECT LAST_INSERT_ID();
+SELECT * FROM room_in_booking;
+
 /* 6. Привести пример транзакции при создании брони. */
 START TRANSACTION;
 SET @id_client = 19;
@@ -340,3 +339,6 @@ INSERT INTO booking VALUES (NULL, @id_client, '2018-05-18');
 SET @last_booking = LAST_INSERT_ID();
 INSERT INTO room_in_booking VALUES (NULL, @last_booking, 34, '2018-05-30', '2018-06-12');
 COMMIT;
+
+SELECT *
+FROM room_in_booking;
