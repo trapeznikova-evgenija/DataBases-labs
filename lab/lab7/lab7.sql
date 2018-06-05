@@ -166,30 +166,68 @@ FROM student_assesment_in_mathematics;
 /* 2. Дать информацию о должниках с указанием фамилии студента и названия предмета.
       Должниками считаются студенты, не имеющие оценки по предмету, который ведется в группе.
       Оформить в виде процедуры, на вход название группы. */
+# может получиться так, что у студента нет долгов по какому-то предмету и он уже не должник
+
+# DELIMITER //
+#
+# CREATE PROCEDURE get_debtors(IN group_name VARCHAR(255))
+#   BEGIN
+#     SELECT
+#       student.surname,
+#       object.object_name
+#     FROM student
+#       LEFT JOIN `group` ON student.id_group = `group`.id_group
+#       LEFT JOIN lesson ON `group`.id_group = lesson.id_group
+#       LEFT JOIN object ON lesson.id_object = object.id_object
+#       LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
+#     WHERE `group`.short_group_name = group_name AND student.id_student NOT IN (SELECT assessment.id_student
+#                                                                                FROM assessment);
+#   END;
+# //
 
 DELIMITER //
 
 CREATE PROCEDURE get_debtors(IN group_name VARCHAR(255))
   BEGIN
+    CREATE TEMPORARY TABLE IF NOT EXISTS learner
+      AS (SELECT
+            lesson.id_lesson, student.id_student
+          FROM lesson
+            LEFT JOIN `group` ON lesson.id_group = `group`.id_group
+            LEFT JOIN student ON `group`.id_group = student.id_group
+            LEFT JOIN object ON lesson.id_object = object.id_object
+            LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
+          WHERE `group`.short_group_name = group_name);
     SELECT
-      student.surname,
-      object.object_name
-    FROM student
-      INNER JOIN `group` ON student.id_group = `group`.id_group
-      INNER JOIN lesson ON `group`.id_group = lesson.id_group
-      INNER JOIN object ON lesson.id_object = object.id_object
-      LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
-    WHERE `group`.short_group_name = group_name AND student.id_student NOT IN (SELECT assessment.id_student
-                                                                               FROM assessment);
+      student.surname, object.object_name
+    FROM learner
+      LEFT JOIN assessment ON (learner.id_student = assessment.id_student AND assessment.id_lesson = learner.id_lesson)
+      LEFT JOIN student ON learner.id_student = student.id_student
+      LEFT JOIN lesson ON learner.id_lesson = lesson.id_lesson
+      LEFT JOIN object ON lesson.id_object = object.id_object
+    WHERE assessment.id_assessment IS NULL;
+
+    DROP TEMPORARY TABLE learner;
   END;
 //
 
-CALL get_debtors('ПС-21');
+DROP PROCEDURE get_debtors;
+CALL get_debtors( 'ПС-21');
+
+SELECT
+  lesson.id_lesson, student.surname, student.id_student, object.object_name, object.id_object
+FROM lesson
+  LEFT JOIN `group` ON lesson.id_group = `group`.id_group
+  LEFT JOIN student ON `group`.id_group = student.id_group
+  LEFT JOIN object ON lesson.id_object = object.id_object
+  LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
+WHERE `group`.short_group_name = 'ПС-21';
 
 /* 3. Дать среднюю оценку студентов по каждому предмету для тех предметов,
       по которым занимается не менее 10 студентов. */
 
-CREATE INDEX IN_assessment ON assessment(assesment);
+CREATE INDEX IN_assessment
+  ON assessment (assesment);
 
 CREATE VIEW average_students_grade
   AS
@@ -197,8 +235,8 @@ CREATE VIEW average_students_grade
       lesson.id_object,
       COUNT(assessment.id_student) AS amount_student,
       AVG(assessment.assesment)    AS average_grades
-    FROM lesson
-      INNER JOIN `group` ON lesson.id_group = `group`.id_group
+    FROM `group`
+      INNER JOIN lesson ON `group`.id_group = lesson.id_group
       INNER JOIN student ON `group`.id_group = student.id_group
       INNER JOIN assessment ON student.id_student = assessment.id_student
       INNER JOIN object ON lesson.id_object = object.id_object
@@ -215,22 +253,23 @@ FROM average_students_grade
   INNER JOIN object ON object.id_object = average_students_grade.id_object;
 
 /* 4. Дать оценки студентов специальности ВМ по всем проводимым предметам с указанием группы, фамилии, предмета, даты.
-      При отсутствии оценки заполнить значениями NULL поля оценки и даты. */
+      При отсутствии оценки заполнить значениями NULL поля оценки. */
 
-CREATE INDEX IN_profession_name ON `group`(short_profession_name);
+CREATE INDEX IN_profession_name
+  ON `group` (short_profession_name);
 
 EXPLAIN SELECT
-  student.surname,
-  object.object_name,
-  assessment.assesment,
-  lesson.data,
-  `group`.short_group_name
-FROM lesson
-  LEFT JOIN `group` ON lesson.id_group = `group`.id_group
-  LEFT JOIN student ON `group`.id_group = student.id_group
-  LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
-  LEFT JOIN object ON lesson.id_object = object.id_object
-WHERE `group`.short_profession_name = 'ИВТ';
+          student.surname,
+          object.object_name,
+          assessment.assesment,
+          lesson.data,
+          `group`.short_group_name
+        FROM lesson
+          LEFT JOIN `group` ON lesson.id_group = `group`.id_group
+          LEFT JOIN student ON `group`.id_group = student.id_group
+          LEFT JOIN assessment ON lesson.id_lesson = assessment.id_lesson
+          LEFT JOIN object ON lesson.id_object = object.id_object
+        WHERE `group`.short_profession_name = 'ИВТ';
 
 /* 5. Всем студентам специальности ИВТ,
       получившим оценки меньшие 5 по предмету БД до 12.05, повысить эти оценки на 1 балл. */
@@ -238,7 +277,9 @@ WHERE `group`.short_profession_name = 'ИВТ';
 SELECT *
 FROM object;
 
-SELECT student.surname, assessment.assesment
+SELECT
+  student.surname,
+  assessment.assesment
 FROM assessment
   LEFT JOIN student ON assessment.id_student = student.id_student
   LEFT JOIN `group` ON student.id_group = `group`.id_group
